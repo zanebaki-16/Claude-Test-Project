@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>zanebaki.com</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 60px 20px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      opacity: 0.85;
+      margin-bottom: 50px;
+      text-align: center;
+    }
+
+    .card-row {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 1100px;
+      width: 100%;
+    }
+
+    .card {
+      width: 300px;
+      height: 380px;
+      perspective: 1200px;
+      cursor: pointer;
+    }
+
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+      transform-style: preserve-3d;
+    }
+
+    .card.flipped .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card-face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: 16px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    .card-front {
+      background: linear-gradient(145deg, #ffffff 0%, #e6e6e6 100%);
+      color: #1e3c72;
+    }
+
+    .card-front .card-number {
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .card-front .card-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .card-front .hint {
+      margin-top: 24px;
+      font-size: 0.85rem;
+      opacity: 0.65;
+      font-style: italic;
+    }
+
+    .card-back {
+      background: linear-gradient(145deg, #2a5298 0%, #1e3c72 100%);
+      color: #fff;
+      transform: rotateY(180deg);
+    }
+
+    .card-back p {
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    footer {
+      margin-top: 60px;
+      font-size: 0.85rem;
+      opacity: 0.6;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+      .card { width: 280px; height: 360px; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Zane Baki</h1>
+  <p class="subtitle">Click a card to flip it.</p>
+
+  <div class="card-row">
+    <div class="card" onclick="this.classList.toggle('flipped')">
+      <div class="card-inner">
+        <div class="card-face card-front">
+          <div class="card-number">1</div>
+          <div class="card-title">Profile</div>
+          <div class="hint">Click to flip</div>
+        </div>
+        <div class="card-face card-back">
+          <p>Zane Baki is an approaching third year student at Northeastern University double majoring in Data Science and Psychology.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="this.classList.toggle('flipped')">
+      <div class="card-inner">
+        <div class="card-face card-front">
+          <div class="card-number">2</div>
+          <div class="card-title">About This Site</div>
+          <div class="hint">Click to flip</div>
+        </div>
+        <div class="card-face card-back">
+          <p>This is a test website, displaying beginner usage of Claude Code.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="this.classList.toggle('flipped')">
+      <div class="card-inner">
+        <div class="card-face card-front">
+          <div class="card-number">3</div>
+          <div class="card-title">The Goal</div>
+          <div class="hint">Click to flip</div>
+        </div>
+        <div class="card-face card-back">
+          <p>The goal is to master AI usage, to eventually regulate businesses with AI.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>zanebaki.com</footer>
+</body>
+</html>
